@@ -13,27 +13,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         // Initialize UI elements
         var LoginButton: Button = findViewById(R.id.loginButton)
-        var RegisterButton: Button = findViewById(R.id.registerButton)
 
         // Login button actions
         LoginButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity,LoginActivity::class.java))
-        }
-
-        // Register button actions
-        RegisterButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity,RegisterActivity::class.java))
+            startActivity(Intent(this@LoginActivity,PizzaTypeActivity::class.java))
         }
     }
 }

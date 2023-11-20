@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Group9_MAPD711_Project</string>
+    <string name="MAPS_API_KEY">AIzaSyDBQOf0tvMNiecFD8A5UQ-0JmHW8BL6JAA</string>
+    <string name="welcome_text">Select the Pizza Store</string>
+    <string name="app_logo_desc">image of a map pin with a pizza in its eye</string>
+    <string name="copyright_text">Copyright ©️ 2023. Group One. All Rights Reserved.</string>
+    <string name="usage_description">To use the application, click on one of the cities to see pizza restaurants available in it.</string>
+
+    <string-array name="cities_list">
+        <item>Toronto Downtown, ON</item>
+        <item>Scarborough, ON</item>
+        <item>Mississauga, ON</item>
+        <item>North York, ON</item>
+        <item>Oakville, ON</item>
+        <item>Markham, ON</item>
+        <item>Brampton, ON</item>
+        <item>Ajax, ON</item>
+    </string-array>
+    <string name="title_activity_markers_map">MarkersMapActivity</string>
 </resources>
