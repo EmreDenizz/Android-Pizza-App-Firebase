@@ -13,10 +13,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textView5"
@@ -31,49 +30,16 @@
             android:textColor="#FD8917"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16sp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginEnd="16sp"
-                    android:layout_marginBottom="5sp"
-                    android:text="Name*"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/adminFirstNameRegEdit"
-                    android:layout_width="377dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16sp"
-                    android:layout_marginBottom="5sp"
-                    android:ems="10"
-                    android:hint="Enter your name"
-                    android:inputType="text"
-                    android:textColor="#000000"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="16sp"
-                android:layout_weight="1"
-                android:orientation="vertical"/>
-
-        </LinearLayout>
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="15sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Enter your credentials to create a customer account and access the app. Fields marked with (*) are mandatory."
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -82,7 +48,31 @@
             android:layout_marginTop="5sp"
             android:layout_marginEnd="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Email*"
+            android:text="Full Names *"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/adminFirstNameRegEdit"
+            android:layout_width="377dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="5sp"
+            android:ems="10"
+            android:hint="Enter your name"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="5sp"
+            android:text="Email Address*"
             android:textColor="#000000"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -149,13 +139,14 @@
 
         <Button
             android:id="@+id/registerButton"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginTop="15sp"
             android:layout_marginEnd="16sp"
             android:backgroundTint="#FD8917"
-            android:text="Register"
+            android:text="Create An Account"
             android:textColor="@color/white" />
 
     </LinearLayout>

@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="pizza_color">#FD8917</color>
+    <color name="openColor">#00DD00</color> <!-- Green color for "Open" -->
+    <color name="closedColor">#DD0000</color> <!-- Red color for "Closed" -->
 </resources>

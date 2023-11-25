@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
 
         // Login button actions
         LoginButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity,LoginActivity::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
         }
 
         // Register button actions
         RegisterButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity,RegisterActivity::class.java))
+            startActivity(Intent(this,RegisterActivity::class.java))
         }
     }
 }

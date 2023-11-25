@@ -17,4 +17,5 @@
         <item>Ajax, ON</item>
     </string-array>
     <string name="title_activity_markers_map">MarkersMapActivity</string>
+    <string name="title_activity_pizza_restaurants_map">PizzaRestaurantsMapActivity</string>
 </resources>

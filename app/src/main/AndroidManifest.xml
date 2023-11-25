@@ -13,6 +13,34 @@
         android:theme="@style/Theme.Group9_MAPD711_Project"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmOrderAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuildPizzaOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CitySelectorActivity"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/MAPS_API_KEY" />
+
+        <activity
+            android:name=".PizzaRestaurantsMapActivity"
+            android:exported="false"
+            android:label="@string/title_activity_pizza_restaurants_map" />
+        <activity
             android:name=".ConfirmActivity"
             android:exported="false" />
         <activity
@@ -23,12 +51,6 @@
             android:exported="false" />
         <activity
             android:name=".CustomerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SelectStoreActivity"
             android:exported="false" />
         <activity
             android:name=".PizzaTypeActivity"

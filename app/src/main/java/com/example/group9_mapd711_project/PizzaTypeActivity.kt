@@ -24,7 +24,7 @@ class PizzaTypeActivity : AppCompatActivity() {
 
         // Login button actions
         ButtonContinue.setOnClickListener {
-            startActivity(Intent(this@PizzaTypeActivity,SelectStoreActivity::class.java))
+            startActivity(Intent(this,PizzaTypeActivity::class.java))
         }
     }
 }

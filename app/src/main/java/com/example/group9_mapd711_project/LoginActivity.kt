@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Login button actions
         LoginButton.setOnClickListener {
-            startActivity(Intent(this@LoginActivity,PizzaTypeActivity::class.java))
+            startActivity(Intent(this,CitySelectorActivity::class.java))
         }
     }
 }

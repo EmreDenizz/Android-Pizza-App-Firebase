@@ -24,7 +24,7 @@ class CustomerActivity : AppCompatActivity() {
 
         // Login button actions
         PayButton.setOnClickListener {
-            startActivity(Intent(this@CustomerActivity,ConfirmActivity::class.java))
+            startActivity(Intent(this,ConfirmActivity::class.java))
         }
     }
 }
