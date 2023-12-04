@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
-            android:fontFamily="monospace"
+            android:fontFamily="sans-serif-black"
             android:text="Let's Get \nStarted"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textStyle="bold" />
@@ -51,9 +51,9 @@
             android:layout_marginTop="10sp"
             android:layout_marginEnd="16sp"
             android:layout_marginBottom="30sp"
-            android:letterSpacing="0.1"
             android:lineHeight="25sp"
             android:text="Locate nearby Pizza restaurants and deliver happiness from the comfort of you couch"
+            android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="16sp" />
 

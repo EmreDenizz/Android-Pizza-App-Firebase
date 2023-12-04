@@ -16,24 +16,53 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.example.group9_mapd711_project.databinding.ActivityMainBinding
+import com.example.group9_mapd711_project.models.Customer
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        // Initialize UI elements
-        var LoginButton: Button = findViewById(R.id.loginButton)
-        var RegisterButton: Button = findViewById(R.id.registerButton)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         // Login button actions
-        LoginButton.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             startActivity(Intent(this,LoginActivity::class.java))
         }
 
         // Register button actions
-        RegisterButton.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Check if the user is already signed in, and if so, navigate to the home activity
+        if (firebaseAuth.currentUser != null) {
+            val customerDocRef = firestore.collection("customers").document(firebaseAuth.currentUser!!.uid).get()
+            customerDocRef.addOnSuccessListener {
+                if (it.exists()){
+                    val currentCustomer = it.toObject<Customer>()!!
+                    if (currentCustomer.deliveryAddress.isNotEmpty()){
+                        startActivity(Intent(this,CitySelectorActivity::class.java))
+                    }
+                    else{
+                        startActivity(Intent(this,AddDeliveryAddressActivity::class.java))
+                    }
+                }
+            }.addOnFailureListener {  }
         }
     }
 }

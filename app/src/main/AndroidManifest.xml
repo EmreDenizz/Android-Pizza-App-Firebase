@@ -13,6 +13,16 @@
         android:theme="@style/Theme.Group9_MAPD711_Project"
         tools:targetApi="31">
         <activity
+            android:name=".AppNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_app_navigation" />
+        <activity
+            android:name=".AddDeliveryAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerViewSingleOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConfirmOrderAddressActivity"
             android:exported="false" />
         <activity

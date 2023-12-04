@@ -6,187 +6,143 @@
     android:layout_height="match_parent"
     tools:context=".ConfirmActivity">
 
-    <TextView
-        android:id="@+id/textViewAddress"
-        android:layout_width="318dp"
-        android:layout_height="81dp"
-        android:text="$address"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.813" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="319dp"
-        android:layout_height="50dp"
-        android:text="Your order will be delivered to your address within one hour at most:"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
-
-    <TextView
-        android:id="@+id/textPizzaSize"
-        android:layout_width="109dp"
-        android:layout_height="30dp"
-        android:text="$size"
-        android:textAlignment="textEnd"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="366dp"
-        android:layout_height="28dp"
-        android:text="with toppings"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.526" />
-
-    <TextView
-        android:id="@+id/textPizzaToppings"
-        android:layout_width="370dp"
-        android:layout_height="84dp"
-        android:text="$toppings"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
-
-    <TextView
-        android:id="@+id/textPizzaType"
-        android:layout_width="212dp"
-        android:layout_height="32dp"
-        android:text="$pizza_type"
-        android:textAlignment="textStart"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="366dp"
-        android:layout_height="28dp"
-        android:text="You ordered a"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="290dp"
-        android:layout_height="32dp"
-        android:text="Your payment is successful."
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirmation"
-        android:textAlignment="center"
-        android:textColor="#FD8917"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="95dp"
-        android:layout_height="28dp"
-        android:text="Thank you"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.126" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
 
-    <TextView
-        android:id="@+id/textViewCustomerName"
-        android:layout_width="301dp"
-        android:layout_height="32dp"
-        android:text="$customer_name"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:padding="20sp"
+                android:text="Delivery In Progress"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/pizza_color"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="91dp"
-        android:layout_height="93dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266"
-        app:srcCompat="@drawable/success" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="25sp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/delivery" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="123dp"
-        android:layout_height="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998"
-        app:srcCompat="@drawable/delivery" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Order Recieved"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="27sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="20sp"
+            android:text="Your order has been placed successfully. Our dedicated team is work around the clock to deliver your package within the next few minutes. \n\nTo track your order, SMS your Reference Code to 10001."
+            android:textAlignment="center"
+            android:textColor="#8A8585"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="15sp">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20sp"
+                android:fontFamily="sans-serif-black"
+                android:text="Ref No.  #3fGI95PDHlMdkzPTlQXh"
+                android:textColor="#686565"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@android:style/Widget.Holo.ImageButton"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:background="@color/white"
+                android:scaleType="centerInside"
+                android:src="@drawable/archives"
+                app:tint="@color/pizza_color" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginTop="30sp"
+            android:text="Track My Order" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="15sp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10sp"
+                android:paddingEnd="10sp"
+                android:text="OR" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:text="Go Back Home" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

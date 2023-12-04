@@ -72,6 +72,10 @@ class CustomDialogFragment : BottomSheetDialogFragment() {
             // Add your navigation logic here
             // For example, navigate to another activity
             val intent = Intent(requireContext(), PizzaTypeActivity::class.java)
+
+            intent.putExtra("selected_rest_name",name)
+            intent.putExtra("selected_rest_address",address)
+
             startActivity(intent)
 
             // Dismiss the dialog

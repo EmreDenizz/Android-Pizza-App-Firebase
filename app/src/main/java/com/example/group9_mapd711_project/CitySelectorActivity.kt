@@ -47,7 +47,8 @@ class CitySelectorActivity : AppCompatActivity() {
             val intent = Intent(this,PizzaRestaurantsMapActivity::class.java)
 
             // Pass selected city to intent
-            intent.putExtra("selected_city",selectedCity.cityName)
+            intent.putExtra("selected_city",searchTerm)
+            intent.putExtra("selected_city_image",possibleCityOptions[position].cityImage)
 
             // Get longtitude and latitude values of selected city
             val geocoder = Geocoder(this)

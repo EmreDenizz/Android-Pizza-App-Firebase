@@ -17,6 +17,7 @@ import com.example.group9_mapd711_project.databinding.ActivityPizzaRestaurantsMa
 import com.example.group9_mapd711_project.models.Place
 import com.example.group9_mapd711_project.models.PlacesApiService
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.Marker
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -30,7 +31,6 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
     // Define place longitude and latitude values
     private var townLatitude = 0.0
     private var townLongitude = 0.0
-    private var userSelectedCity = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +38,18 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityPizzaRestaurantsMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backFAB2.setOnClickListener {
+            finish()
+        }
+
+
+
         val intent = intent
-        userSelectedCity = "Pizza Restaurants in "+intent.getStringExtra("selected_city")
         townLatitude = intent.getDoubleExtra("latitude", 0.00)
         townLongitude = intent.getDoubleExtra("longitude", 0.00)
+
+        binding.selectedCityNameText.text = intent.getStringExtra("selected_city")
+        binding.selectedCityImage2.setImageResource(intent.getIntExtra("selected_city_image",R.drawable.city1))
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -65,6 +73,9 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Set a custom click listener for markers
         mMap.setOnMarkerClickListener { marker ->
             // Handle marker click here
+            val selectedMarker = marker.position
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(selectedMarker,15f,10f,15f)))
+
             showCustomDialog(marker.tag as Place)
             true
         }

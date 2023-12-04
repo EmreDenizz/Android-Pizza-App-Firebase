@@ -16,26 +16,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="20sp"
-            android:layout_marginBottom="10sp"
-            android:fontFamily="sans-serif-black"
-            android:text="Login"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#FD8917"
-            android:textStyle="bold" />
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/goBackButton"
+                    style="@style/Widget.Material3.Button.TextButton.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Go Back"
+                    app:cornerRadius="2dp"
+                    app:icon="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13sp"
+                    android:layout_marginTop="5sp"
+                    android:fontFamily="sans-serif-black"
+                    android:paddingBottom="10sp"
+                    android:text="Welcome Back"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
+            android:layout_marginTop="15sp"
             android:layout_marginEnd="16sp"
-            android:layout_marginBottom="15sp"
+            android:layout_marginBottom="25sp"
             android:fontFamily="sans-serif-condensed"
             android:text="Enter your credentials to log into your customer account and access the dashboard. Fields marked with (*) are mandatory."
             android:textSize="12sp" />
@@ -99,6 +120,48 @@
             android:backgroundTint="#FD8917"
             android:text="Log in"
             android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="15sp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10sp"
+                android:paddingEnd="10sp"
+                android:text="OR" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/customerRegisterRedirectButton"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:text="Create A Free Account"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
