@@ -30,25 +30,25 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
                     android:layout_marginEnd="16sp"
-                    android:text="Welcome Back"
+                    android:text="Welcome Back,"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#837E7E"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/greetingTextWithName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16sp"
                     android:layout_marginBottom="10sp"
                     android:fontFamily="sans-serif-black"
                     android:text="Hello Gituku"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="30sp" />
             </LinearLayout>
 
             <Space
@@ -56,12 +56,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/button"
-                style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:icon="@drawable/universal_access" />
+            <ImageButton
+                android:id="@+id/customerProfileRedirectButton"
+                android:layout_width="42dp"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
 
         </LinearLayout>
 

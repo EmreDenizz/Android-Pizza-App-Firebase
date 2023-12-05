@@ -9,10 +9,17 @@ import android.widget.Toast
 import com.example.group9_mapd711_project.adapters.CityOptionsGridViewAdapter
 import com.example.group9_mapd711_project.databinding.ActivityCitySelectorBinding
 import com.example.group9_mapd711_project.models.CityOption
+import com.example.group9_mapd711_project.models.Customer
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 
 class CitySelectorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCitySelectorBinding
     private lateinit var possibleCityOptions:List<CityOption>
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var currentCustomer: Customer
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var cityOptionsGrid:GridView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +27,23 @@ class CitySelectorActivity : AppCompatActivity() {
         binding = ActivityCitySelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        val customerSnap = firestore.collection("customers").document(firebaseAuth.currentUser!!.uid)
+        customerSnap.get().addOnSuccessListener {
+            if (it.exists()){
+                currentCustomer = it.toObject<Customer>()!!
+
+                binding.greetingTextWithName.text = "Hello ${currentCustomer.lastName}"
+            }
+        }.addOnFailureListener {  }
+
         cityOptionsGrid = binding.citiesGridView
+
+        binding.customerProfileRedirectButton.setOnClickListener {
+            startActivity(Intent(this,CustomerProfileViewActivity::class.java))
+        }
 
         possibleCityOptions = arrayListOf(
             CityOption(cityName = "Downtown", cityCountry = "Ontario, CA", cityImage = R.drawable.city1),

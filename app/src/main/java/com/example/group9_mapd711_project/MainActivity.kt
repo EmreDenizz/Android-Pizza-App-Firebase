@@ -34,16 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
-
-        // Login button actions
-        binding.loginButton.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
-        }
-
-        // Register button actions
-        binding.registerButton.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
-        }
     }
 
     override fun onStart() {
@@ -63,6 +53,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.addOnFailureListener {  }
+        }
+        else{
+            startActivity(Intent(this,GetStartedActivity::class.java))
         }
     }
 }
