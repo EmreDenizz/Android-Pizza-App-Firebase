@@ -197,7 +197,7 @@
             android:layout_marginBottom="5sp"
             android:ems="10"
             android:hint="Enter a strong password"
-            android:inputType="text"
+            android:inputType="text|textPassword"
             android:textColor="#000000"
             android:textSize="13sp" />
 
@@ -221,7 +221,7 @@
             android:layout_marginEnd="16sp"
             android:ems="10"
             android:hint="Confirm your password"
-            android:inputType="text"
+            android:inputType="text|textPassword"
             android:textColor="#000000"
             android:textSize="13sp" />
 
