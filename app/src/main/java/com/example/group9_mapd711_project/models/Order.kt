@@ -16,7 +16,7 @@ class Order(
 
     constructor():this("","",
         mutableListOf<String>(),
-        RestaurantAddress(0.0,0.0,"",""),
+        RestaurantAddress(0.0,0.0,"","","",""),
         DeliveryAddress("","",""),
         OrderInfo(0,0.0,com.google.firebase.Timestamp(Date()),false,com.google.firebase.Timestamp(Date())),
         "",
@@ -28,6 +28,8 @@ class RestaurantAddress(
     val restaurantLongitude: Double,
     val restaurantName: String,
     val restaurantAddress: String,
+    val restaurantCity:String,
+    val restaurantCountry:String,
 )
 
 class OrderInfo(
