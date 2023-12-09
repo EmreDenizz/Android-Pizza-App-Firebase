@@ -1,45 +1,64 @@
 package com.example.group9_mapd711_project.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.group9_mapd711_project.R
+import com.example.group9_mapd711_project.models.CityOption
 import com.example.group9_mapd711_project.models.Pizza
+import kotlin.random.Random
 
-class PizzaOptionsListAdapter(private var pizzasList: List<Pizza>, private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<PizzaOptionsListAdapter.PizzaViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.single_pizza_layout_activity, parent, false)
-        return PizzaViewHolder(view)
-    }
+internal class PizzaOptionsListAdapter(
+    private val pizzasList: List<Pizza>,
+    private val pizzasImagesList: List<Int>,
+    private val context: Context
+) :
+    BaseAdapter() {
 
-    override fun onBindViewHolder(holder: PizzaViewHolder, position: Int) {
-        val pizza = pizzasList[position]
-        holder.bind(pizza)
-        holder.itemView.setOnClickListener { onItemClick(pizza.pizzaID) }
-    }
+    private var layoutInflater: LayoutInflater? = null
+    private lateinit var pizzaName: TextView
+    private lateinit var pizzaCategory: TextView
+    private lateinit var pizzastartPrice: TextView
+    private lateinit var pizzaImage: ImageView
 
-    override fun getItemCount(): Int {
+    override fun getCount(): Int {
         return pizzasList.size
     }
 
-    // Update the data in the adapter
-    fun updateData(newData: List<Pizza>) {
-        pizzasList = newData
-        notifyDataSetChanged()
+    override fun getItem(position: Int): Any? {
+        return null
     }
 
-    class PizzaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val pizzaNameTextView: TextView = itemView.findViewById(R.id.singlePizzaName)
-        private val priceTextView: TextView = itemView.findViewById(R.id.singlePizzaPrice)
-        private val categoryTextView: TextView = itemView.findViewById(R.id.singlePizzaCategory)
+    override fun getItemId(position: Int): Long {
+        return 0
+    }
 
-        fun bind(pizza: Pizza) {
-            pizzaNameTextView.text = pizza.pizzaName
-            priceTextView.text = pizza.smallPrice.toString()
-            categoryTextView.text = pizza.pizzaCategory
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
+        var convertView = convertView
+
+        if (layoutInflater == null) {
+            layoutInflater =
+                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
+
+        if (convertView == null) {
+            convertView = layoutInflater!!.inflate(R.layout.single_pizza_layout_activity, null)
+        }
+        pizzaImage = convertView!!.findViewById(R.id.pizzaImage)
+        pizzaName = convertView!!.findViewById(R.id.singlePizzaName)
+        pizzaCategory = convertView!!.findViewById(R.id.singlePizzaCategory)
+        pizzastartPrice = convertView!!.findViewById(R.id.singlePizzaPrice)
+
+        pizzaImage.setImageResource(pizzasImagesList[Random.nextInt(pizzasImagesList.size)])
+        pizzaName.text = pizzasList[position].pizzaName
+        pizzaCategory.text = pizzasList[position].pizzaCategory
+        pizzastartPrice.text = pizzasList[position].smallPrice.toString()
+
+        return convertView
     }
 }

@@ -73,6 +73,7 @@
             android:textSize="12sp" />
 
         <RadioGroup
+            android:id="@+id/pizzaSizesRadioGrp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
@@ -143,15 +144,13 @@
             android:textColor="#8C8787"
             android:textSize="14sp" />
 
-        <GridView
-            android:id="@+id/toppingsListGridView"
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/toppingsListGrided"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginEnd="16sp"
-            android:horizontalSpacing="5sp"
-            android:numColumns="auto_fit"
-            android:verticalSpacing="5sp" />
+            android:layout_marginHorizontal="16sp">
+
+        </androidx.gridlayout.widget.GridLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -179,12 +178,21 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="sans-serif-light"
+                android:text="$"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="30sp" />
+
+            <TextView
                 android:id="@+id/currentTotalBillText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25sp"
                 android:fontFamily="sans-serif-light"
-                android:text="$ 59.63"
+                android:text="59.63"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="30sp" />
         </LinearLayout>

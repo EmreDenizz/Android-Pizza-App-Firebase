@@ -12,7 +12,7 @@ import com.example.group9_mapd711_project.models.PizzaTopping
 
 internal class ToppingsOptionsAdapter (
     private val toppingsList: List<PizzaTopping>,
-    private val selectedToppings:ArrayList<PizzaTopping>,
+    private val selectedToppings:MutableList<PizzaTopping>,
     private val context: Context,
 ):BaseAdapter(){
     private var layoutInflater: LayoutInflater? = null

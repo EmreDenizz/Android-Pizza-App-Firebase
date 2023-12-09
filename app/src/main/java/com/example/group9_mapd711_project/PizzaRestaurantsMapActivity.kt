@@ -38,18 +38,17 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityPizzaRestaurantsMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val pref = applicationContext.getSharedPreferences("Build_Pizza_Order", 0) //initialize an instance of shared preference
+
         binding.backFAB2.setOnClickListener {
             finish()
         }
 
+        townLatitude = pref.getFloat("selected_city_latitude", 0.00f).toDouble()
+        townLongitude = pref.getFloat("selected_city_longitude", 0.00f).toDouble()
 
-
-        val intent = intent
-        townLatitude = intent.getDoubleExtra("latitude", 0.00)
-        townLongitude = intent.getDoubleExtra("longitude", 0.00)
-
-        binding.selectedCityNameText.text = intent.getStringExtra("selected_city")
-        binding.selectedCityImage2.setImageResource(intent.getIntExtra("selected_city_image",R.drawable.city1))
+        binding.selectedCityNameText.text = pref.getString("selected_city", "No Selected City")
+        binding.selectedCityImage2.setImageResource(pref.getInt("selected_city_image", R.drawable.dundas))
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -139,13 +138,7 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun showCustomDialog(place: Place) {
-        val dialog = CustomDialogFragment.newInstance(
-            place.name,
-            place.vicinity,
-            place.rating,
-            place.user_ratings_total.toInt(),
-            place.opening_hours.open_now
-        )
+        val dialog = CustomDialogFragment.newInstance(place)
         dialog.show(supportFragmentManager, "custom_dialog")
     }
 

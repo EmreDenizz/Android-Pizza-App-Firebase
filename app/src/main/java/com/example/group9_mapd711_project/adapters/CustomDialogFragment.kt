@@ -13,20 +13,23 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import com.example.group9_mapd711_project.PizzaTypeActivity
 import com.example.group9_mapd711_project.R
+import com.example.group9_mapd711_project.models.Place
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CustomDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(name: String, address: String, rating: Double, ratingCount: Int, isOpen: Boolean): CustomDialogFragment {
+        fun newInstance(selectedPizzaRestaurant:Place): CustomDialogFragment {
             val fragment = CustomDialogFragment()
             val args = Bundle()
-            args.putString("name", name)
-            args.putString("address", address)
-            args.putDouble("rating", rating)
-            args.putInt("ratingCount", ratingCount)
-            args.putBoolean("isOpen", isOpen)
+            args.putString("latitude", selectedPizzaRestaurant.geometry.location.lat.toString())
+            args.putString("longitude", selectedPizzaRestaurant.geometry.location.lng.toString())
+            args.putString("name", selectedPizzaRestaurant.name)
+            args.putString("address", selectedPizzaRestaurant.vicinity)
+            args.putDouble("rating", selectedPizzaRestaurant.rating)
+            args.putInt("ratingCount", selectedPizzaRestaurant.user_ratings_total.toInt())
+            args.putBoolean("isOpen", selectedPizzaRestaurant.opening_hours.open_now)
             fragment.arguments = args
             return fragment
         }
@@ -42,41 +45,43 @@ class CustomDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Retrieve data from arguments
         val name = arguments?.getString("name", "") ?: ""
         val address = arguments?.getString("address", "") ?: ""
         val rating = arguments?.getDouble("rating", 0.0) ?: 0.0
         val ratingCount = arguments?.getInt("ratingCount", 0) ?: 0
         val isOpen = arguments?.getBoolean("isOpen", false) ?: false
 
-        //initialize the components to use in the dialog
+
+
         val restNameText = view.findViewById<TextView>(R.id.restaurantName)
         val restVicinityText = view.findViewById<TextView>(R.id.restaurantVicinity)
         val restRatingBar = view.findViewById<RatingBar>(R.id.restaurantRatingBar)
         val restRatingsText = view.findViewById<TextView>(R.id.restaurantRatingsCount)
         val restOpenText = view.findViewById<TextView>(R.id.restaurantStatus)
 
-        // Set data to views in the dialog
         restNameText.text = name
         restVicinityText.text = address
         restRatingBar.rating = rating.toFloat()
         restRatingsText.text = "($ratingCount)"
         restOpenText.text = if (isOpen) "OPENED" else "CLOSED"
 
-        // Optionally, you can also change the text color based on isOpen
         val textColor = if (isOpen) R.color.openColor else R.color.closedColor
         restOpenText.setTextColor(ContextCompat.getColor(requireContext(), textColor))
 
-        // Handle button click
-        view.findViewById<Button>(R.id.placeOrderButton).setOnClickListener {
-            // Add your navigation logic here
-            // For example, navigate to another activity
-            val intent = Intent(requireContext(), PizzaTypeActivity::class.java)
+        view.findViewById<TextView>(R.id.placeOrderButton).setOnClickListener {
+            val pref = requireContext().getSharedPreferences("Build_Pizza_Order", 0) //initialize an instance of shared preference
+            val editor = pref.edit()
 
-            intent.putExtra("selected_rest_name",name)
-            intent.putExtra("selected_rest_address",address)
+            editor.putString("selected_restaurant_latitude",arguments?.getString("latitude","0.00")?: "0.00")
+            editor.putString("selected_restaurant_longitude",arguments?.getString("longitude","0.00")?: "0.00")
+            editor.putString("selected_restaurant_name",name)
+            editor.putString("selected_restaurant_address",address)
+            editor.putString("selected_restaurant_rating",rating.toString())
+            editor.putString("selected_restaurant_rating_count",ratingCount.toString())
+            editor.putBoolean("selected_restaurant_open",isOpen)
+            editor.commit()
 
-            startActivity(intent)
+            startActivity(Intent(requireContext(), PizzaTypeActivity::class.java))
 
             // Dismiss the dialog
             dismiss()

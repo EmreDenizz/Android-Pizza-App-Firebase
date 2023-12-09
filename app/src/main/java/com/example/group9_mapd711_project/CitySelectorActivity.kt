@@ -27,6 +27,9 @@ class CitySelectorActivity : AppCompatActivity() {
         binding = ActivityCitySelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val pref = applicationContext.getSharedPreferences("Build_Pizza_Order", 0) //initialize an instance of shared preference
+        val editor = pref.edit()
+
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
@@ -66,6 +69,9 @@ class CitySelectorActivity : AppCompatActivity() {
             val selectedCity = possibleCityOptions[position]
             val searchTerm = "${selectedCity.cityName}, ${selectedCity.cityCountry}"
 
+            editor.putInt("selected_city_image",possibleCityOptions[position].cityImage)
+            editor.putString("selected_city",searchTerm)
+
             // Define intent
             val intent = Intent(this,PizzaRestaurantsMapActivity::class.java)
 
@@ -80,14 +86,11 @@ class CitySelectorActivity : AppCompatActivity() {
                 if (results.isNotEmpty()) {
                     val location = results[0]
 
-                    val latitude = location.latitude
-                    val longitude = location.longitude
+                    editor.putFloat("selected_city_latitude",location.latitude.toFloat())
+                    editor.putFloat("selected_city_longitude",location.longitude.toFloat())
+                    editor.commit()
 
-                    // Pass latitude and longitude to intent
-                    intent.putExtra("latitude",latitude)
-                    intent.putExtra("longitude",longitude)
-
-                    startActivity(intent)
+                    startActivity(Intent(this,PizzaRestaurantsMapActivity::class.java))
                 }
                 else{
                     Toast.makeText(

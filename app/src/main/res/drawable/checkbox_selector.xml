@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Unchecked state -->
+    <item android:state_checked="false">
+        <layer-list>
+            <item>
+                <!-- Background rectangle with stroke -->
+                <shape android:shape="rectangle">
+                    <corners android:radius="5dp" />
+                    <stroke android:color="#FFD700" android:width="2dp" />
+                </shape>
+            </item>
+            <!-- Include an empty item for the checked state to prevent the checked state from overriding the unchecked state -->
+            <item android:state_checked="true" android:drawable="@android:color/transparent" />
+        </layer-list>
+    </item>
+
+    <!-- Checked state -->
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <!-- Filled rectangle -->
+                <shape android:shape="rectangle">
+                    <corners android:radius="5dp" />
+                    <solid android:color="#FFD700" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

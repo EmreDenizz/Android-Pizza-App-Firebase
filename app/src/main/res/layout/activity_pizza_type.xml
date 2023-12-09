@@ -38,58 +38,60 @@
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/city2" />
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/selectedPizzaRestaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Domino's Pizza"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/selectedPizzaRestaurantAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:layout_marginBottom="10sp"
+                android:text="1442 Sheppard Avenue East, Scarborough"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="14sp" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:layout_marginBottom="10sp"
+                android:fontFamily="sans-serif-light"
+                android:text="Select your perfect delicacy from our array of carefully crafted and original recipe pizzas. Made with love."
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-                <TextView
-                    android:id="@+id/selectedPizzaRestaurantName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Domino's Pizza"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+            <GridView
+                android:id="@+id/availableOptionsGrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="20sp"
+                android:horizontalSpacing="15sp"
+                android:numColumns="2"
+                android:paddingBottom="20sp"
+                android:verticalSpacing="20sp" />
 
-                <TextView
-                    android:id="@+id/selectedPizzaRestaurantAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:layout_marginEnd="16sp"
-                    android:layout_marginBottom="10sp"
-                    android:text="1442 Sheppard Avenue East, Scarborough"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textSize="14sp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:layout_marginEnd="16sp"
-                    android:layout_marginBottom="10sp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Select your perfect delicacy from our array of carefully crafted and original recipe pizzas. Made with love."
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/availablePizzaOptionsRecycle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp" />
-
-            </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

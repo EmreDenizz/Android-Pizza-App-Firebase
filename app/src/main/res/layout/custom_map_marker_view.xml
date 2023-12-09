@@ -8,83 +8,83 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="8sp"
-        android:paddingTop="10sp"
-        android:paddingEnd="8sp"
-        android:paddingBottom="10sp">
-
-        <ImageView
-            android:id="@+id/restaurantImage"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="12sp"
-            app:srcCompat="@drawable/pizza_1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8sp"
+            android:paddingTop="10sp"
+            android:paddingEnd="8sp"
+            android:paddingBottom="10sp">
 
-            <TextView
-                android:id="@+id/restaurantName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="Pizza Planet"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/restaurantVicinity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2sp"
-                android:layout_marginBottom="5sp"
-                android:fontFamily="sans-serif-black"
-                android:text="941 Progess Avenue, Toronto, ON"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="#9F9191"
-                android:textSize="10sp" />
+            <ImageView
+                android:id="@+id/restaurantImage"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_marginEnd="12sp"
+                app:srcCompat="@drawable/pizza_1" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <RatingBar
-                    android:id="@+id/restaurantRatingBar"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="false"
-                    android:numStars="5"
-                    android:rating="3.2" />
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/restaurantRatingsCount"
+                    android:id="@+id/restaurantName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="(347)"
-                    android:textSize="16sp" />
+                    android:text="Pizza Planet"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/restaurantVicinity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="941 Progess Avenue, Toronto, ON"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#9F9191"
+                    android:textSize="10sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/restaurantRatingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="false"
+                        android:numStars="5"
+                        android:rating="3.2" />
+
+                    <TextView
+                        android:id="@+id/restaurantRatingsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="(347)"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="end"
-            android:orientation="vertical">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/restaurantStatus"
@@ -94,23 +94,88 @@
                 android:fontFamily="sans-serif-black"
                 android:letterSpacing="0.1"
                 android:text="Closed"
+                android:textAllCaps="true"
                 android:textColor="#DD1515"
                 android:textSize="13sp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/placeOrderButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/pizza_color"
-                android:text="Order"
-                android:textStyle="bold" />
         </LinearLayout>
 
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10sp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/city1" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_marginEnd="15sp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/city2" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_marginEnd="15sp"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/city3" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_marginEnd="15sp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/city4" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_marginEnd="15sp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/dundas" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/city7" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/placeOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginVertical="10sp"
+            android:background="@color/pizza_color"
+            android:clickable="true"
+            android:paddingVertical="12sp"
+            android:text="Proceed to Order"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
