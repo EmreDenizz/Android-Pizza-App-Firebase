@@ -32,7 +32,12 @@ class ConfirmActivity : AppCompatActivity() {
             Toast.makeText(this,"Reference Copied", Toast.LENGTH_SHORT).show()
         }
 
-        binding.goHomeButton.setOnClickListener {  }
+        binding.goHomeButton.setOnClickListener {
+            val intent = Intent(this, CitySelectorActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()  // Optional: Close the current activity
+        }
 
         binding.trackOrderButton.setOnClickListener {
             startActivity(Intent(this, CustomerViewSingleOrderActivity::class.java))

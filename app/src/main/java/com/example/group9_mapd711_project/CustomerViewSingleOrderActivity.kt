@@ -1,5 +1,6 @@
 package com.example.group9_mapd711_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.group9_mapd711_project.databinding.ActivityCustomerViewSingleOrderBinding
@@ -31,7 +32,7 @@ class CustomerViewSingleOrderActivity : AppCompatActivity() {
                 binding.orderQuantityText.text = "${orderInView.orderInfo.unitsCount} box(es)"
                 binding.orderToppingsCountText.text = "${orderInView.productInfo.productToppings.size} toppings"
                 binding.orderPizzaSizeText.text = "${orderInView.productInfo.productSize} Pizza"
-                binding.orderTotalPrice.text = "$ ${orderInView.orderInfo.totalOrderPrice}"
+                binding.orderTotalPrice.text = "$ ${String.format("%.2f",orderInView.orderInfo.totalOrderPrice)}"
 
                 binding.orderRestaurantName.text = orderInView.restaurantAddress.restaurantName
                 binding.orderRestaurantAddress.text = orderInView.restaurantAddress.restaurantAddress
@@ -48,5 +49,22 @@ class CustomerViewSingleOrderActivity : AppCompatActivity() {
         }.addOnFailureListener {  }
 
         binding.updateReviewButton.setOnClickListener {  }
+
+        binding.goBackButton.setOnClickListener {
+            val intent = Intent(this, CustomerViewAllOrdersActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        // Create intent for the list of all orders activity
+        val intent = Intent(this, CustomerViewAllOrdersActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        startActivity(intent)
+        finish()
     }
 }

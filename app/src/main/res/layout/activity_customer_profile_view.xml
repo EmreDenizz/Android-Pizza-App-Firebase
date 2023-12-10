@@ -23,18 +23,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="16sp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingVertical="10sp">
+                android:paddingVertical="5sp">
 
                 <Button
                     android:id="@+id/goBackButton"
                     style="@style/Widget.Material3.Button.TextButton.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Go Back"
+                    android:text="Home"
                     app:cornerRadius="2dp"
                     app:icon="@drawable/back" />
 
@@ -46,22 +44,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="13sp"
+                    android:fontFamily="sans-serif-black"
                     android:text="My Profile"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/editProfileRedirectButton"
-                    style="@style/Widget.AppCompat.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit" />
+                    android:layout_weight="3" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -118,6 +110,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewMyOrdersCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="13sp"
@@ -185,6 +178,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewMyAddressesCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="13sp"
@@ -249,6 +243,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/updateMyProfileCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13sp"

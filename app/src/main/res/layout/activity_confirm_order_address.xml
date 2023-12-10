@@ -24,27 +24,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:paddingVertical="5sp">
 
                 <Button
                     android:id="@+id/goBackButton"
                     style="@style/Widget.Material3.Button.TextButton.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Go Back"
+                    android:text="Build Order"
                     app:cornerRadius="2dp"
                     app:icon="@drawable/back" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13sp"
-                    android:layout_marginTop="5sp"
                     android:fontFamily="sans-serif-black"
-                    android:paddingBottom="10sp"
-                    android:text="Confirm Order Details"
+                    android:text="Confirm to Pay"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

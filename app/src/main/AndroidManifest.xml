@@ -23,14 +23,12 @@
             android:exported="false" />
         <activity
             android:name=".CustomerViewAllOrdersActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".CustomerProfileViewActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
-        <activity
-            android:name=".AppNavigationActivity"
-            android:exported="false"
-            android:label="@string/title_activity_app_navigation" />
         <activity
             android:name=".AddDeliveryAddressActivity"
             android:exported="false" />
@@ -45,6 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".CitySelectorActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -63,8 +62,7 @@
 
         <activity
             android:name=".PizzaRestaurantsMapActivity"
-            android:exported="false"
-            android:label="@string/title_activity_pizza_restaurants_map" />
+            android:exported="false" />
         <activity
             android:name=".ConfirmActivity"
             android:exported="false" />

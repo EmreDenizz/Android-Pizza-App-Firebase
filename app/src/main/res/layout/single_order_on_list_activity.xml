@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10sp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="5sp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/pizza_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/singleOrderPizzaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:fontFamily="sans-serif-black"
+                android:text="Artichoke and Garlic"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#676161"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="10sp"
+                        android:layout_height="10sp"
+                        android:background="@color/pizza_color" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pizza_color" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6sp"
+                    android:layout_marginBottom="10sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/singleOrderRestaurantName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Frank's Night Pizza"
+                            android:textColor="#857F7F"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/singleOrderRestaurantAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="941 Progress Avenue, Scarborough" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="10sp"
+                        android:layout_height="10sp"
+                        android:background="@color/pizza_color" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pizza_color" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6sp"
+                    android:layout_marginBottom="10sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/singleOrderDeliveryAddressTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Frank's Night Pizza"
+                            android:textColor="#857F7F"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/singleOrderDeliveryAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="941 Progress Avenue, Scarborough" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/deliveryStatusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:fontFamily="sans-serif-black"
+                android:text="Delivered on Sat, 21st June 2023"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#676161"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

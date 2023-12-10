@@ -34,15 +34,38 @@ class CustomerProfileViewActivity : AppCompatActivity() {
             }
         }.addOnFailureListener {  }
 
-        binding.goBackButton.setOnClickListener { finish() }
+        binding.goBackButton.setOnClickListener {
+            val intent = Intent(this, CitySelectorActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()  // Optional: Close the current activity
+        }
 
-        binding.editProfileRedirectButton.setOnClickListener {
-            startActivity(Intent(this, CustomerEditProfileActivity::class.java))
+        binding.viewMyOrdersCard.setOnClickListener {
+            startActivity(Intent(this, CustomerViewAllOrdersActivity::class.java))
+        }
+
+        binding.viewMyAddressesCard.setOnClickListener {
+            //startActivity(Intent(this, CustomerViewAllOrdersActivity::class.java))
+        }
+
+        binding.updateMyProfileCard.setOnClickListener {
+            startActivity(Intent(this, UpdateCustomerProfileActivity::class.java))
         }
 
         binding.customerLogoutButton.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        // Create intent for the list of all orders activity
+        val intent = Intent(this, CitySelectorActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        startActivity(intent)
+        finish()
     }
 }

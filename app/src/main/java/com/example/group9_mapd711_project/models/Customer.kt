@@ -10,7 +10,6 @@ class Customer(
 ) {
     var customerID: String = ""
 
-    // Secondary constructor
     constructor(
         firstName: String,
         lastName: String,
