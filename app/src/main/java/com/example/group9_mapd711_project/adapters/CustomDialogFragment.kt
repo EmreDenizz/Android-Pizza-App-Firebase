@@ -78,7 +78,7 @@ class CustomDialogFragment : BottomSheetDialogFragment() {
             editor.putString("selected_restaurant_address",address)
             editor.putString("selected_restaurant_rating",rating.toString())
             editor.putString("selected_restaurant_rating_count",ratingCount.toString())
-            editor.putBoolean("selected_restaurant_open",isOpen)
+            editor.putString("selected_restaurant_open",isOpen.toString())
             editor.commit()
 
             startActivity(Intent(requireContext(), PizzaTypeActivity::class.java))

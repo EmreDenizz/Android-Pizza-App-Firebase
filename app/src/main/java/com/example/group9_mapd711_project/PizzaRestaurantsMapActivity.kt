@@ -44,11 +44,11 @@ class PizzaRestaurantsMapActivity : AppCompatActivity(), OnMapReadyCallback {
             finish()
         }
 
-        townLatitude = pref.getFloat("selected_city_latitude", 0.00f).toDouble()
-        townLongitude = pref.getFloat("selected_city_longitude", 0.00f).toDouble()
+        townLatitude = pref.getString("selected_city_latitude", "0.00")!!.toDouble()
+        townLongitude = pref.getString("selected_city_longitude", "0.00")!!.toDouble()
 
         binding.selectedCityNameText.text = pref.getString("selected_city", "No Selected City")
-        binding.selectedCityImage2.setImageResource(pref.getInt("selected_city_image", R.drawable.dundas))
+        binding.selectedCityImage2.setImageResource(pref.getString("selected_city_image", "R.drawable.dundas")!!.toInt())
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager

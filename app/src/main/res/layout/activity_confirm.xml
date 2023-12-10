@@ -75,7 +75,7 @@
             android:paddingVertical="15sp">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/orderReferenceNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20sp"
@@ -85,7 +85,7 @@
                 android:textSize="16sp" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/copyReferenceButton"
                 style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="20sp"
                 android:layout_height="20sp"
@@ -96,7 +96,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/trackOrderButton"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/goHomeButton"
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

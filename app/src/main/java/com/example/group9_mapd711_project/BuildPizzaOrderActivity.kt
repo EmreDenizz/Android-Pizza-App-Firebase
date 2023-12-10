@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.gridlayout.widget.GridLayout
 import com.example.group9_mapd711_project.databinding.ActivityBuildPizzaOrderBinding
 import com.example.group9_mapd711_project.models.Pizza
@@ -41,6 +42,16 @@ class BuildPizzaOrderActivity : AppCompatActivity() {
         firebaseFirestore = FirebaseFirestore.getInstance()
         toppingsListGridView = binding.toppingsListGrided
 
+        val pizzaTypeRef = firebaseFirestore.collection("products").document(pref.getString("selected_pizza_ID","No Pizza Selected")?:"No Pizza Selected")
+        pizzaTypeRef.get().addOnSuccessListener {
+            if (it.exists()){
+                selectedPizzaProduct = it.toObject<Pizza>()!!
+                selectedPizzaProduct.pizzaID = it.id
+
+                binding.currentTotalBillText.text = selectedPizzaProduct.smallPrice.toString()
+            }
+        }.addOnFailureListener {  }
+
         binding.backFAB.setOnClickListener {
             finish()
         }
@@ -75,20 +86,6 @@ class BuildPizzaOrderActivity : AppCompatActivity() {
             val totalCost = calculateTotalCost(pizzaSize, selectedToppingsList)
             updateUIWithCost(totalCost)
         }
-
-        binding.placeOrderButton.setOnClickListener {
-            startActivity(Intent(this,ConfirmOrderAddressActivity::class.java))
-        }
-
-        val pizzaTypeRef = firebaseFirestore.collection("products").document(pref.getString("selected_pizza_ID","No Pizza Selected")?:"No Pizza Selected")
-        pizzaTypeRef.get().addOnSuccessListener {
-            if (it.exists()){
-                selectedPizzaProduct = it.toObject<Pizza>()!!
-                selectedPizzaProduct.pizzaID = it.id
-
-                binding.currentTotalBillText.text = "$ ${selectedPizzaProduct.smallPrice}"
-            }
-        }.addOnFailureListener {  }
 
         val toppingsReference = firebaseFirestore.collection("toppings").get()
         toppingsReference.addOnSuccessListener {
@@ -157,18 +154,25 @@ class BuildPizzaOrderActivity : AppCompatActivity() {
         }.addOnFailureListener {  }
 
         binding.placeOrderButton.setOnClickListener {
-            editor.putString("selected_pizza_size",pizzaSize)
-            editor.putString("order_total_price",pizzatotalCost.toString())
-            editor.putInt("order_units_count",itemCount)
-            editor.putString("order_toppings_list", selectedToppingsList.joinToString(",") { it.pizzaToppingID })
-            editor.commit()
+            if (selectedToppingsList.isNotEmpty()){
+                editor.putString("selected_pizza_size", pizzaSize)
+                editor.putString("order_total_price", pizzatotalCost.toString())
+                editor.putString("order_units_count", itemCount.toString())
+                editor.putString(
+                    "order_toppings_list",
+                    selectedToppingsList.joinToString(",") { it.pizzaToppingID })
+                editor.commit()
 
-            startActivity(Intent(this,ConfirmOrderAddressActivity::class.java))
+                startActivity(Intent(this, ConfirmOrderAddressActivity::class.java))
+            }
+            else{
+                Toast.makeText(this,"No Toppings Selected",Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
     // Calculate the total cost based on size and selected toppings
-    fun calculateTotalCost(size: String, selectedToppings: List<PizzaTopping>): Double {
+    private fun calculateTotalCost(size: String, selectedToppings: List<PizzaTopping>): Double {
 
         val basePrice = when (size) {
             "Small" -> selectedPizzaProduct.smallPrice
@@ -183,7 +187,7 @@ class BuildPizzaOrderActivity : AppCompatActivity() {
     }
 
     // Update the UI with the total cost
-    fun updateUIWithCost(totalCost: Double) {
+    private fun updateUIWithCost(totalCost: Double) {
         pizzatotalCost = "%.2f".format(totalCost).toDouble()
         binding.currentTotalBillText.text = String.format("%.2f",pizzatotalCost)
         binding.unitsCountText.text = itemCount.toString()

@@ -27,7 +27,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/goBackButton"
                     style="@style/Widget.Material3.Button.TextButton.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,417 +48,603 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="20sp"
-            android:layout_marginBottom="10sp"
-            android:text="Order Details"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginEnd="16sp">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="10sp"
-                android:orientation="horizontal"
-                android:paddingTop="10sp"
-                android:paddingBottom="10sp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginEnd="10sp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/pizza" />
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginEnd="16sp"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/singlePizzaName"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Family Pack 3"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textSize="16sp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/singlePizzaCategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5sp"
-                        android:text="Extra Sprinkles and Crust"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textSize="12sp" />
+                        <View
+                            android:layout_width="10sp"
+                            android:layout_height="10sp"
+                            android:background="@color/pizza_color" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/pizza_color" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="25sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="10sp"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Order"
+                            android:textColor="#676060"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/orderPlacedTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Recieved on Sat, 22nd June 2023 4:53 am"
+                            android:textSize="14sp" />
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="5sp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:clipChildren="true"
+                            android:clipToOutline="true"
+                            android:clipToPadding="true"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="5dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="Order Units"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                                android:textColor="#837B7B"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:orientation="horizontal"
+                                android:paddingTop="10sp"
+                                android:paddingBottom="10sp">
 
-                            <Space
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginEnd="10sp"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/pizza" />
 
-                            <TextView
-                                android:id="@+id/orderQuantityText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-light"
-                                android:text="4 boxes"
-                                android:textSize="16sp" />
-                        </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="5sp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                                    <TextView
+                                        android:id="@+id/orderPizzaName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-black"
+                                        android:text="Family Pack 3"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                        android:textSize="14sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="Toppings"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                                android:textColor="#837B7B"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/orderPizzaCategory"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5sp"
+                                        android:text="Extra Sprinkles and Crust"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                        android:textSize="10sp" />
 
-                            <Space
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/orderToppingsCountText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-light"
-                                android:text="3 toppings"
-                                android:textSize="16sp" />
-                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginTop="5sp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="5sp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-black"
+                                                android:text="Order Units"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                                android:textColor="#837B7B"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="Pizza Size"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                                android:textColor="#837B7B"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                            <TextView
+                                                android:id="@+id/orderQuantityText"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-light"
+                                                android:text="4 boxes"
+                                                android:textSize="12sp" />
+                                        </LinearLayout>
 
-                            <Space
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginTop="5sp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/orderPizzaSizeText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-light"
-                                android:text="Deluxe Pizza"
-                                android:textSize="16sp" />
-                        </LinearLayout>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-black"
+                                                android:text="Toppings"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                                android:textColor="#837B7B"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold" />
 
+                                            <TextView
+                                                android:id="@+id/orderToppingsCountText"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-light"
+                                                android:text="3 toppings"
+                                                android:textSize="12sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginTop="5sp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-black"
+                                                android:text="Pizza Size"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                                android:textColor="#837B7B"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:id="@+id/orderPizzaSizeText"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:fontFamily="sans-serif-light"
+                                                android:text="Deluxe Pizza"
+                                                android:textSize="12sp" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/orderTotalPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10sp"
+                                    android:fontFamily="sans-serif-black"
+                                    android:text="$ 50.15"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/singlePizzaPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="$ 50.15"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginBottom="5sp"
-            android:text="Progress"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="15sp"
-            android:layout_marginEnd="16sp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <View
-                        android:id="@+id/placedRectView"
-                        android:layout_width="10sp"
-                        android:layout_height="10sp"
-                        android:background="@color/pizza_color" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                    <View
-                        android:id="@+id/placedPathView"
-                        android:layout_width="2dp"
+                        <View
+                            android:layout_width="10sp"
+                            android:layout_height="10sp"
+                            android:background="@color/pizza_color" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/pizza_color" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/pizza_color" />
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="10sp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Package"
+                            android:textColor="#676060"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Order has been dispatched from our restaurant"
+                            android:textSize="14sp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:clipChildren="true"
+                            android:clipToOutline="true"
+                            android:clipToPadding="true"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:orientation="horizontal"
+                                android:paddingTop="10sp"
+                                android:paddingBottom="10sp">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginEnd="10sp"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/screenshot_2023_10_31_at_4_48_47pm" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/orderRestaurantName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-black"
+                                        android:text="Pizza Pizza Place"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/orderRestaurantAddress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5sp"
+                                        android:text="941 Progress Avenue, Scarborough"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                        android:textSize="10sp" />
+
+                                    <TextView
+                                        android:id="@+id/orderRestaurantLocation"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5sp"
+                                        android:text="ON, Canada M1B 1R2"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                        android:textSize="10sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal"
+                                            android:paddingBottom="5sp">
+
+                                            <RatingBar
+                                                android:id="@+id/orderRestaurantRatingBar"
+                                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:numStars="5"
+                                                android:progressTint="@color/pizza_color"
+                                                android:rating="3.5" />
+
+                                            <TextView
+                                                android:id="@+id/orderRestaurantRatingCount"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="10sp"
+                                                android:text="(436)" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginBottom="10sp"
-                    android:orientation="vertical"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="10sp"
+                            android:layout_height="10sp"
+                            android:background="@color/pizza_color" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/pizza_color" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="3sp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Order Placed"
-                        android:textColor="#676060"
-                        android:textSize="13sp" />
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="10sp"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/orderPlacedTimeText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Sat, 22nd June 2023 4:53 am"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Delivery"
+                            android:textColor="#676060"
+                            android:textSize="13sp" />
 
-            </LinearLayout>
+                        <TextView
+                            android:id="@+id/orderReceivedText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Delivery is underway to your location"
+                            android:textSize="14sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:clipChildren="true"
+                            android:clipToOutline="true"
+                            android:clipToPadding="true"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="5dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:orientation="horizontal"
+                                android:paddingTop="10sp"
+                                android:paddingBottom="10sp">
 
-                    <View
-                        android:id="@+id/dispRectView"
-                        android:layout_width="10sp"
-                        android:layout_height="10sp"
-                        android:background="@color/pizza_color" />
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginEnd="10sp"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/success" />
 
-                    <View
-                        android:id="@+id/dispPathview"
-                        android:layout_width="2dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/pizza_color" />
-                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginBottom="10sp"
-                    android:orientation="vertical"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp">
+                                    <TextView
+                                        android:id="@+id/orderDeliveryAddressTag"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-black"
+                                        android:text="Home"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                        android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="3sp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Delivery Dispatched"
-                        android:textColor="#676060"
-                        android:textSize="13sp" />
+                                    <TextView
+                                        android:id="@+id/orderDeliveryAddress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5sp"
+                                        android:text="941 Progress Avenue, Scarborough"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                        android:textSize="10sp" />
 
-                    <TextView
-                        android:id="@+id/orderRestaurantAddressText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="1494 Sheppard Avenue East, Scarborough, ON"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                                    <TextView
+                                        android:id="@+id/orderDeliveryLocation"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5sp"
+                                        android:text="ON, Canada M1B 1R2"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                        android:textSize="10sp" />
 
-            </LinearLayout>
+                                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <View
-                        android:id="@+id/receiveRectView"
-                        android:layout_width="10sp"
-                        android:layout_height="10sp"
-                        android:background="@color/pizza_color" />
-
-                    <View
-                        android:id="@+id/receivePathView"
-                        android:layout_width="2dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/pizza_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginBottom="10sp"
-                    android:orientation="vertical"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="3sp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Package Received"
-                        android:textColor="#676060"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/orderReceivedTimeText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Sat, 22nd June 2023 4:53 am"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <View
-                        android:id="@+id/reviewRectView"
-                        android:layout_width="10sp"
-                        android:layout_height="10sp"
-                        android:background="@color/pizza_color" />
-
-                    <View
-                        android:id="@+id/reviewPathView"
-                        android:layout_width="2dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/pizza_color" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginBottom="10sp"
-                    android:orientation="vertical"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="3sp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Customer Review "
-                        android:textColor="#676060"
-                        android:textSize="13sp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/customerReviewText"
+                        <View
+                            android:layout_width="10sp"
+                            android:layout_height="10sp"
+                            android:background="@color/pizza_color" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/pizza_color" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Ordered pizza from [Pizza Place] and it was a fantastic experience! The delivery was lightning-fast, and the pizza arrived hot. The crust was perfect, toppings fresh, and the overall taste was amazing. "
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="25sp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="3sp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Review"
+                            android:textColor="#676060"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/orderReviewedText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Posted on Sat, 22nd June 2023 4:53 am"
+                            android:textSize="14sp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginBottom="10sp"
+                            android:clipChildren="true"
+                            android:clipToOutline="true"
+                            android:clipToPadding="true"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:orientation="horizontal"
+                                android:paddingTop="10sp"
+                                android:paddingBottom="10sp">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginEnd="10sp"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/user" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/orderSubmittedReviewText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5sp"
+                                        android:layout_marginBottom="10sp"
+                                        android:fontFamily="sans-serif-light"
+                                        android:text="Muthaiga Golf Club, proudly called the Home of Golf by its elite membership, is in many ways the ultimate embodiment of Kenya’s unique marriage of ancient golf tradition and a modern 18-Hole Championship Golf Course."
+                                        android:textSize="12sp" />
+
+                                    <Button
+                                        android:id="@+id/updateReviewButton"
+                                        style="@style/Widget.AppCompat.Button"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Update My Review" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
                 </LinearLayout>
-
             </LinearLayout>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/placeAnotherOrderButton"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16sp"
-            android:layout_marginTop="20sp"
-            android:text="Place Similar Order" />
+        </ScrollView>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

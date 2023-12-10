@@ -6,7 +6,8 @@ import java.util.Date
 class Order(
     val customerID:String,
     val pizzaID: String,
-    val pizzaToppings: MutableList<String>,
+    val pizzaSize: String,
+    val pizzaToppings: List<String>,
     val restaurantAddress: RestaurantAddress,
     val deliveryAddress: DeliveryAddress,
     val orderInfo: OrderInfo,
@@ -14,11 +15,11 @@ class Order(
 ){
     var orderID:String  = ""
 
-    constructor():this("","",
+    constructor():this("","","",
         mutableListOf<String>(),
-        RestaurantAddress(0.0,0.0,"","","",""),
-        DeliveryAddress("","",""),
-        OrderInfo(0,0.0,com.google.firebase.Timestamp(Date()),false,com.google.firebase.Timestamp(Date())),
+        RestaurantAddress(0.0,0.0,"","",""),
+        DeliveryAddress("","","","",""),
+        OrderInfo(0,0.0,com.google.firebase.Timestamp(Date()),false,false,com.google.firebase.Timestamp(Date()),0.0,0.0),
         "",
     )
 }
@@ -28,8 +29,7 @@ class RestaurantAddress(
     val restaurantLongitude: Double,
     val restaurantName: String,
     val restaurantAddress: String,
-    val restaurantCity:String,
-    val restaurantCountry:String,
+    val restaurantCityCountry:String,
 )
 
 class OrderInfo(
@@ -37,11 +37,16 @@ class OrderInfo(
     val totalOrderPrice: Double,
     val orderSubmitDate: Timestamp,
     val orderDelivered: Boolean,
+    val orderDiscounted:Boolean,
     val orderDeliverDate: Timestamp,
+    val tipPercent: Double,
+    val tipAmount: Double
 )
 
 class DeliveryAddress(
     val deliveryPostalCode: String,
-    val deliveryCityCountry: String,
+    val deliveryCity: String,
+    val deliveryProvince: String,
+    val deliveryCountry: String,
     val deliveryAddress: String,
 )

@@ -69,15 +69,8 @@ class CitySelectorActivity : AppCompatActivity() {
             val selectedCity = possibleCityOptions[position]
             val searchTerm = "${selectedCity.cityName}, ${selectedCity.cityCountry}"
 
-            editor.putInt("selected_city_image",possibleCityOptions[position].cityImage)
+            editor.putString("selected_city_image",possibleCityOptions[position].cityImage.toString())
             editor.putString("selected_city",searchTerm)
-
-            // Define intent
-            val intent = Intent(this,PizzaRestaurantsMapActivity::class.java)
-
-            // Pass selected city to intent
-            intent.putExtra("selected_city",searchTerm)
-            intent.putExtra("selected_city_image",possibleCityOptions[position].cityImage)
 
             // Get longtitude and latitude values of selected city
             val geocoder = Geocoder(this)
@@ -86,8 +79,8 @@ class CitySelectorActivity : AppCompatActivity() {
                 if (results.isNotEmpty()) {
                     val location = results[0]
 
-                    editor.putFloat("selected_city_latitude",location.latitude.toFloat())
-                    editor.putFloat("selected_city_longitude",location.longitude.toFloat())
+                    editor.putString("selected_city_latitude",location.latitude.toString())
+                    editor.putString("selected_city_longitude",location.longitude.toString())
                     editor.commit()
 
                     startActivity(Intent(this,PizzaRestaurantsMapActivity::class.java))
