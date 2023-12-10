@@ -56,5 +56,144 @@
                     android:layout_weight="3" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="15sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Update your profile details to match what we have in our records. This ensures that we always have your up to date contact information for delivery purposes."
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:text="First Name*"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/customerFirstNameUpdEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:ems="10"
+                    android:hint="Update your First Name"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16sp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:text="Last Name*"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/customerLastNameUpdEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:ems="10"
+                    android:hint="Update your Last Name"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="5sp"
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/customerUsernameUpdEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:ems="10"
+            android:hint="Update your username"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="5sp"
+            android:text="Phone Number*"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/customerPhoneUpdEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:ems="10"
+            android:hint="e.g. +1 (437) 661-2182"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/updateProfileButton"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="16sp"
+            android:backgroundTint="#FD8917"
+            android:text="Update Profile Info"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
