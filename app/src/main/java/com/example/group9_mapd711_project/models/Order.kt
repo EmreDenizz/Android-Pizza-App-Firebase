@@ -4,10 +4,7 @@ import com.google.firebase.Timestamp
 import java.util.Date
 
 class Order(
-    val customerID:String,
-    val pizzaID: String,
-    val pizzaSize: String,
-    val pizzaToppings: List<String>,
+    val productInfo: ProductInfo,
     val restaurantAddress: RestaurantAddress,
     val deliveryAddress: DeliveryAddress,
     val orderInfo: OrderInfo,
@@ -15,10 +12,10 @@ class Order(
 ){
     var orderID:String  = ""
 
-    constructor():this("","","",
-        mutableListOf<String>(),
-        RestaurantAddress(0.0,0.0,"","",""),
-        DeliveryAddress("","","","",""),
+    constructor():this(
+        ProductInfo("","","","", mutableListOf()),
+        RestaurantAddress(0.0,0.0,"","","",0.0,0),
+        DeliveryAddress("","","","","","","","","",""),
         OrderInfo(0,0.0,com.google.firebase.Timestamp(Date()),false,false,com.google.firebase.Timestamp(Date()),0.0,0.0),
         "",
     )
@@ -30,6 +27,16 @@ class RestaurantAddress(
     val restaurantName: String,
     val restaurantAddress: String,
     val restaurantCityCountry:String,
+    val restaurantRating:Double,
+    val restaurantRatingsCount:Int,
+)
+
+class ProductInfo(
+    val productID:String,
+    val productName:String,
+    val productCategory:String,
+    val productSize:String,
+    val productToppings:List<String>,
 )
 
 class OrderInfo(
@@ -44,6 +51,11 @@ class OrderInfo(
 )
 
 class DeliveryAddress(
+    val customerID:String,
+    val customerFullNames:String,
+    val customerEmailAddress:String,
+    val customerPhoneNumber:String,
+    val customerAddressTag:String,
     val deliveryPostalCode: String,
     val deliveryCity: String,
     val deliveryProvince: String,

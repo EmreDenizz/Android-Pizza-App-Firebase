@@ -25,6 +25,7 @@ import com.example.group9_mapd711_project.models.DeliveryAddress
 import com.example.group9_mapd711_project.models.Order
 import com.example.group9_mapd711_project.models.OrderInfo
 import com.example.group9_mapd711_project.models.PizzaTopping
+import com.example.group9_mapd711_project.models.ProductInfo
 import com.example.group9_mapd711_project.models.RestaurantAddress
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -211,16 +212,21 @@ class ConfirmOrderAddressActivity : AppCompatActivity() {
         binding.placeCompleteOrderButton.setOnClickListener {
             if (selectedDeliveryAddress != null){
                 orderToSubmit = Order(
-                    customerID = firebaseAuth.currentUser!!.uid,
-                    pizzaID = pref.getString("selected_pizza_ID","No Pizza Selected")!!,
-                    pizzaToppings = pref.getString("order_toppings_list","No Order Submitted")!!.split(","),
-                    pizzaSize = pref.getString("selected_pizza_size","No Pizza Selected")!!,
+                    productInfo = ProductInfo(
+                        productID = pref.getString("selected_pizza_ID","No Pizza Selected")!!,
+                        productToppings = pref.getString("order_toppings_list","No Order Submitted")!!.split(","),
+                        productCategory = pref.getString("selected_pizza_category","No Pizza Selected")!!,
+                        productName = pref.getString("selected_pizza_name","No Pizza Selected")!!,
+                        productSize = pref.getString("selected_pizza_size","No Pizza Selected")!!,
+                    ),
                     restaurantAddress = RestaurantAddress(
                         restaurantLatitude = pref.getString("selected_restaurant_latitude","No Pizza Selected")!!.toDouble(),
                         restaurantLongitude = pref.getString("selected_restaurant_longitude","No Pizza Selected")!!.toDouble(),
                         restaurantName = pref.getString("selected_restaurant_name","No Pizza Selected")!!,
                         restaurantAddress = pref.getString("selected_restaurant_address","No Pizza Selected")!!,
                         restaurantCityCountry = pref.getString("selected_city","No Pizza Selected")!!,
+                        restaurantRating = pref.getString("selected_restaurant_rating","No Pizza Selected")!!.toDouble(),
+                        restaurantRatingsCount = pref.getString("selected_restaurant_rating_count","No Pizza Selected")!!.toInt(),
                     ),
                     deliveryAddress = DeliveryAddress(
                         deliveryPostalCode = selectedDeliveryAddress!!.postalCode,
@@ -228,6 +234,11 @@ class ConfirmOrderAddressActivity : AppCompatActivity() {
                         deliveryProvince = selectedDeliveryAddress!!.provinceCode,
                         deliveryCountry = selectedDeliveryAddress!!.country,
                         deliveryAddress = selectedDeliveryAddress!!.deliverAddress,
+                        customerAddressTag = selectedDeliveryAddress!!.addressTag,
+                        customerID = pref.getString("current_customer_uid","No Pizza Selected")!!,
+                        customerEmailAddress = pref.getString("current_customer_email","No Pizza Selected")!!,
+                        customerFullNames = pref.getString("current_customer_names","No Pizza Selected")!!,
+                        customerPhoneNumber = pref.getString("current_customer_phone","No Pizza Selected")!!,
                     ),
                     orderInfo = OrderInfo(
                         unitsCount = pref.getString("order_units_count","0")!!.toInt(),

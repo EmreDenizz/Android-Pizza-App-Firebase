@@ -46,6 +46,15 @@ class MainActivity : AppCompatActivity() {
                 if (it.exists()){
                     val currentCustomer = it.toObject<Customer>()!!
                     if (currentCustomer.deliveryAddress.isNotEmpty()){
+                        val pref = applicationContext.getSharedPreferences("Build_Pizza_Order", 0) //initialize an instance of shared preference
+                        val editor = pref.edit()
+
+                        editor.putString("current_customer_names","${currentCustomer.firstName} ${currentCustomer.lastName}")
+                        editor.putString("current_customer_email", currentCustomer.emailAddress)
+                        editor.putString("current_customer_phone", currentCustomer.phoneNumber)
+                        editor.putString("current_customer_uid", firebaseAuth.currentUser!!.uid)
+                        editor.commit()
+
                         startActivity(Intent(this,CitySelectorActivity::class.java))
                     }
                     else{
