@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="Wlecome Back"
+                    android:text="Welcome Back"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="16sp" />
 

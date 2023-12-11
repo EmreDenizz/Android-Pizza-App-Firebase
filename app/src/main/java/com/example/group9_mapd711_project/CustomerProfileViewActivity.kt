@@ -46,7 +46,7 @@ class CustomerProfileViewActivity : AppCompatActivity() {
         }
 
         binding.viewMyAddressesCard.setOnClickListener {
-            //startActivity(Intent(this, CustomerViewAllOrdersActivity::class.java))
+            startActivity(Intent(this, CustomerViewMyAddressesListActivity::class.java))
         }
 
         binding.updateMyProfileCard.setOnClickListener {
