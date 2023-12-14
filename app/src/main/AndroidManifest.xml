@@ -13,12 +13,15 @@
         android:theme="@style/Theme.Group9_MAPD711_Project"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateRestaurantReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".NormalAddNewAddressActivity"
             android:exported="false" />
         <activity
             android:name=".CustomerViewMyAddressesListActivity"
-            android:launchMode="singleTop"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".UpdateCustomerProfileActivity"
             android:exported="false" />
@@ -41,6 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".CustomerViewSingleOrderActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".ConfirmOrderAddressActivity"

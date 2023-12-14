@@ -16,6 +16,7 @@ import com.example.group9_mapd711_project.databinding.ActivityCustomerViewSingle
 import com.example.group9_mapd711_project.models.Order
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
+import java.text.SimpleDateFormat
 
 class CustomerViewSingleOrderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCustomerViewSingleOrderBinding
@@ -49,6 +50,11 @@ class CustomerViewSingleOrderActivity : AppCompatActivity() {
                 binding.orderRestaurantRatingBar.rating = orderInView.restaurantAddress.restaurantRating.toFloat()
                 binding.orderRestaurantRatingCount.text = "(${orderInView.restaurantAddress.restaurantRatingsCount})"
 
+                binding.orderReviewedText.text = if (orderInView.customerReview.isEmpty()) "Please give feedback on the service" else "Thanks for your feedback!!"
+                binding.orderReceivedText.text = if (orderInView.orderInfo.orderDelivered) "Delivered on ${SimpleDateFormat("YYYY/MM/DD hh:mm").format(orderInView.orderInfo.orderDeliverDate.seconds * 1000L)}" else "Delivery is underway to your location"
+                binding.orderPlacedTimeText.text = "Submitted on ${SimpleDateFormat("YYYY/MM/DD hh:mm").format(orderInView.orderInfo.orderSubmitDate.seconds * 1000L)}"
+                binding.deliveryImage.setImageResource(if (orderInView.orderInfo.orderDelivered) R.drawable.success else R.drawable.delivery)
+
                 binding.orderDeliveryAddressTag.text = orderInView.deliveryAddress.customerAddressTag
                 binding.orderDeliveryAddress.text = "${orderInView.deliveryAddress.deliveryAddress}, ${orderInView.deliveryAddress.deliveryCity}"
                 binding.orderDeliveryLocation.text = "${orderInView.deliveryAddress.deliveryProvince}, ${orderInView.deliveryAddress.deliveryCountry} ${orderInView.deliveryAddress.deliveryPostalCode}"
@@ -57,7 +63,9 @@ class CustomerViewSingleOrderActivity : AppCompatActivity() {
             }
         }.addOnFailureListener {  }
 
-        binding.updateReviewButton.setOnClickListener {  }
+        binding.updateReviewButton.setOnClickListener {
+            startActivity(Intent(this, UpdateRestaurantReviewActivity::class.java))
+        }
 
         binding.goBackButton.setOnClickListener {
             val intent = Intent(this, CustomerViewAllOrdersActivity::class.java)

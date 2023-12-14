@@ -499,6 +499,7 @@
                                 android:paddingBottom="10sp">
 
                                 <ImageView
+                                    android:id="@+id/deliveryImage"
                                     android:layout_width="35dp"
                                     android:layout_height="35dp"
                                     android:layout_marginEnd="10sp"
