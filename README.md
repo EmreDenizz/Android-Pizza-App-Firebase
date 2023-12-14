@@ -49,8 +49,9 @@ Welcome to the Android Pizza App repository! This application allows users to or
 The app utilizes Firebase for user authentication, storing orders, and managing order history. Ensure you have a Firebase project set up and update the configuration files accordingly.
 
 ## Screenshots<a name="screenshots"></a>
+![Frame 2](https://github.com/EmreDenizz/Android-Pizza-App-Firebase/assets/66807339/f9f4045b-e5a1-495c-b5cf-424c682b31e9)
 
-_Insert screenshots of the app in action_
+
 
 ## Contributing<a name="contributing"></a>
 
