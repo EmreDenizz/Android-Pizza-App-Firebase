@@ -51,14 +51,6 @@ The app utilizes Firebase for user authentication, storing orders, and managing 
 ## Screenshots<a name="screenshots"></a>
 ![Frame 2](https://github.com/EmreDenizz/Android-Pizza-App-Firebase/assets/66807339/f9f4045b-e5a1-495c-b5cf-424c682b31e9)
 
-
-
 ## Contributing<a name="contributing"></a>
 
 Feel free to contribute to the project by submitting bug reports, feature requests, or pull requests. Follow the [contributing guidelines](CONTRIBUTING.md) for more details.
-
-## License<a name="license"></a>
-
-This project is licensed under the [MIT License](LICENSE).
-
-Thank you for using the Android Pizza App! If you have any questions or concerns, feel free to reach out to the project maintainers.
