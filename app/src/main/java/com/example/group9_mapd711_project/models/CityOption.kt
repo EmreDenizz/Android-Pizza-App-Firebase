@@ -6,7 +6,6 @@
  * @date Dec 11, 2023
  * @description: Android Project
  */
-
 package com.example.group9_mapd711_project.models
 
 class CityOption (
